@@ -1,11 +1,11 @@
-# Moodify 🎵
+# Moodify
 
-A mood-based music discovery app.
+Mood-based music discovery app with Spotify-inspired UI.
 
 ## Project Structure
 
-- `client/`: Frontend (Next.js + Tailwind CSS)
-- `server/`: Backend (Node.js + Express)
+- client/: Frontend (Next.js + Tailwind)
+- server/: Backend (Node.js + Express)
 
 ## Setup Instructions
 
