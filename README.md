@@ -49,6 +49,48 @@ Mood-based music discovery app with Spotify-inspired UI.
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Running the Application
+
+To run the full application locally, follow these steps:
+
+### Option 1: Running in Separate Terminals (Recommended)
+
+**Terminal 1 - Start the Backend Server:**
+```bash
+cd server
+npm run dev
+```
+The backend will start on http://localhost:5000
+
+**Terminal 2 - Start the Frontend Application:**
+```bash
+cd client
+npm run dev
+```
+The frontend will start on http://localhost:3000
+
+**Open your browser** and navigate to http://localhost:3000
+
+### Option 2: Running from Root Directory
+
+If you prefer, you can run both from the root directory in separate terminal windows:
+
+**Terminal 1:**
+```bash
+cd server && npm run dev
+```
+
+**Terminal 2:**
+```bash
+cd client && npm run dev
+```
+
+### Troubleshooting
+
+- **Port 3000 already in use**: The frontend will automatically use an available port (e.g., 3001). Check the terminal output for the correct URL.
+- **Port 5000 already in use**: Change the `PORT` variable in `server/.env` to an available port.
+- **YouTube API not working**: Verify your API key is correctly set in `server/.env`.
+
 ## Logic
 
 1. **User Input**: User enters text (e.g., "I feel sad").
