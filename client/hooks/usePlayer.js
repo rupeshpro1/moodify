@@ -1,14 +1,16 @@
 import { useState } from "react";
 
 export default function usePlayer() {
-  const [currentVideoId, setCurrentVideoId] = useState("");
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const currentVideoId = currentTrack?.id?.videoId || "";
 
-  const play = (videoId) => {
-    setCurrentVideoId(videoId);
+  const play = (track) => {
+    setCurrentTrack(track);
   };
 
   return {
     currentVideoId,
+    currentTrack,
     play
   };
 }

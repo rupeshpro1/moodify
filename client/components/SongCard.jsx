@@ -10,7 +10,7 @@ export default function SongCard({ song, onPlay }) {
   return (
     <button
       onClick={() => {
-        if (videoId) onPlay(videoId);
+        if (videoId) onPlay(song);
       }}
       className="text-left rounded-xl p-3 bg-white/5 hover:bg-white/10 transition group"
     >

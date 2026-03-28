@@ -1,31 +1,44 @@
-const libraryItems = [
-  { title: "Liked Songs", subtitle: "Playlist", badge: "42 songs" },
-  { title: "Daily Hindi Mix", subtitle: "Playlist", badge: "Curated" },
-  { title: "Workout Heat", subtitle: "Playlist", badge: "High energy" },
-  { title: "Night Chill", subtitle: "Playlist", badge: "Lofi" }
+const topArtists = [
+  { name: "The Weeknd" },
+  { name: "Adam Levine" },
+  { name: "Chainsmokers" },
+  { name: "Maroon 5" },
+  { name: "Atlantic Records" },
+  { name: "Chase" }
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ onArtistClick }) {
   return (
-    <aside className="hidden md:flex md:flex-col w-[320px] bg-[#0f0f10] border-r border-white/10 p-4 gap-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold tracking-tight">Your Library</h2>
-        <button className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition">+</button>
+    <aside className="hidden md:flex md:flex-col w-[320px] bg-[#0f0f10] border-r border-white/10 p-6 gap-6 overflow-y-auto">
+      <div className="flex items-center gap-3">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff5a5f] via-[#ff9f1c] to-[#2ec4b6] grid place-items-center shadow-lg shadow-black/40">
+          <span className="text-black font-black text-xl">M</span>
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-white/55">App</p>
+          <h2 className="text-2xl font-bold tracking-tight">Moodify</h2>
+        </div>
       </div>
 
-      <div className="rounded-2xl p-4 bg-gradient-to-br from-[#4f1c6f] via-[#213a95] to-[#0d7e4b]">
-        <p className="font-semibold">Import your music from other apps</p>
-        <p className="text-sm text-white/80 mt-2">Bring your playlists, artists, and songs in one place.</p>
-        <button className="mt-4 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold">Import library</button>
+      <div className="rounded-2xl p-4 border border-white/10 bg-white/5">
+        <p className="text-white/80 text-sm leading-relaxed">
+          Search by mood and play instantly.
+        </p>
       </div>
 
-      <div className="flex flex-col gap-3 overflow-y-auto pr-1">
-        {libraryItems.map((item) => (
-          <div key={item.title} className="rounded-xl p-3 bg-white/5 hover:bg-white/10 transition cursor-pointer">
-            <p className="font-medium leading-tight">{item.title}</p>
-            <p className="text-sm text-white/70">{item.subtitle} . {item.badge}</p>
-          </div>
-        ))}
+      <div className="flex flex-col gap-3">
+        <p className="text-xs uppercase tracking-[0.1em] text-white/55 font-semibold">Top Artists</p>
+        <div className="flex flex-col gap-2">
+          {topArtists.map((artist) => (
+            <button
+              key={artist.name}
+              onClick={() => onArtistClick?.(artist.name)}
+              className="w-full text-left px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition text-sm font-medium truncate"
+            >
+              {artist.name}
+            </button>
+          ))}
+        </div>
       </div>
     </aside>
   );
